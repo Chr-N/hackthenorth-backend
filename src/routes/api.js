@@ -29,16 +29,17 @@ module.exports = () => {
     res.send(`We've sent the text "${text}" to ${to}!`)
   })
 
-  router.route('/webhooks/inbound')
+  router
+    .route('/webhooks/inbound')
     .get((req,res) => {
       const params = Object.assign(req.query, req.body)
       console.log(params)
-      res.status(204).send('Received SMS!')
+      res.status(204).send()
     })
     .post((req,res) => {
       const params = Object.assign(req.query, req.body)
       console.log(params)
-      res.status(204).send('Received SMS!')
+      res.status(204).send()
     })
 
   return router
