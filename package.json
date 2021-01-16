@@ -2,13 +2,15 @@
   "name": "hackthenorth-backend",
   "version": "0.1.0",
   "scripts": {
-    "start": "node-dev src/server.js",
+    "start": "node src/server.js",
     "dev": "node-dev src/server.js"
   },
-  "devDependencies": {
+  "dependencies": {
     "@vonage/server-sdk": "^2.10.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
     "node-dev": "^6.2.0"
   },
   "engines": {
