@@ -8,25 +8,31 @@ module.exports = () => {
   })
 
   router.post('/send', async (req,res) => {
-    const { text } = req.body
+    // phoneNumber string format: 16470000000
+    const { text, phoneNumber } = req.body
+
+    if (!text || !phoneNumber) res.send('text and phoneNumber required to send text')
 
     const vonage = new Vonage({
       apiKey: process.env.API_KEY,
       apiSecret: process.env.API_SECRET
     })
 
-    const from = process.env.FROM
-    const to = process.env.TO
+    const sender = process.env.SENDER_PHONE_NUMBER
 
-    vonage.message.sendSms(from, to, text, (err,data) => {
+    vonage.message.sendSms(sender, phoneNumber, text, (err,data) => {
       if (err) console.log(err)
       else {
-        if (data.messages[0].status === '0') console.log(`Sent "${text}" to ${to}!`)
-        else console.log(`Error: ${data.messages[0]['error-text']}`)
+        if (data.messages[0].status === '0') {
+          console.log(`Sent "${text}" to ${phoneNumber}!`)
+          res.send(`We've sent the text "${text}" to ${phoneNumber}!`)
+      }
+        else {
+          console.log(`Error: ${data.messages[0]['error-text']}`)
+          res.send('Error sending text 😢')
+        }
       }
     })
-
-    res.send(`We've sent the text "${text}" to ${to}!`)
   })
 
   router
@@ -34,12 +40,12 @@ module.exports = () => {
     .get((req,res) => {
       const params = Object.assign(req.query, req.body)
       console.log(params)
-      res.status(204).send()
+      res.status(204).send('Received an SMS!')
     })
     .post((req,res) => {
       const params = Object.assign(req.query, req.body)
       console.log(params)
-      res.status(204).send()
+      res.status(204).send('Received an SMS!')
     })
 
   return router
