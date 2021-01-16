@@ -6,8 +6,12 @@
     "dev": "node-dev src/server.js"
   },
   "devDependencies": {
+    "@vonage/server-sdk": "^2.10.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "node-dev": "^6.2.0"
+  },
+  "engines": {
+    "node": "12.x || 14.x || 15.x"
   }
 }
