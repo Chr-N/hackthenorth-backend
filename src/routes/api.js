@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const Vonage = require('@vonage/server-sdk')
 
+const messages = []
+
 module.exports = () => {
   router.get('/', async (req,res) => {
     res.json({ message: 'Hello from the api 👋' })
@@ -40,13 +42,19 @@ module.exports = () => {
     .get((req,res) => {
       const params = Object.assign(req.query, req.body)
       console.log(params)
+      messages.push(params.text)
       res.status(204).send('Received an SMS!')
     })
     .post((req,res) => {
       const params = Object.assign(req.query, req.body)
       console.log(params)
+      messages.push(params.text)
       res.status(204).send('Received an SMS!')
     })
+
+  router.get('/messages', (req,res) => {
+    res.json({ messages })
+  })
 
   return router
 }
