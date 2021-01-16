@@ -41,6 +41,5 @@ module.exports = () => {
       res.status(204).send('Received SMS!')
     })
 
-
   return router
 }
