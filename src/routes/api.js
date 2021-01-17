@@ -1,8 +1,12 @@
 const express = require('express')
 const router = express.Router()
 const Vonage = require('@vonage/server-sdk')
+const pg = require('pg')
 
 const messages = []
+
+const pool = new pg.Pool()
+
 
 module.exports = () => {
   router.get('/', async (req,res) => {
@@ -26,7 +30,10 @@ module.exports = () => {
       if (err) console.log(err)
       else {
         if (data.messages[0].status === '0') {
-          console.log(`Sent "${text}" to ${phoneNumber}!`)
+          messages.push({ text, sender, recipient: phoneNumber })
+
+          console.log('Sent')
+          console.dir(messages[messages.length - 1])
           res.send(`We've sent the text "${text}" to ${phoneNumber}!`)
       }
         else {
@@ -41,19 +48,26 @@ module.exports = () => {
     .route('/webhooks/inbound')
     .get((req,res) => {
       const params = Object.assign(req.query, req.body)
-      console.log(params)
-      messages.push(params.text)
+
+      messages.push({ text: params.text, sender: params.msisdn, recipient: params.to })
+
+      console.log('Received')
+      console.dir(messages[messages.length - 1])
       res.status(204).send('Received an SMS!')
     })
     .post((req,res) => {
       const params = Object.assign(req.query, req.body)
-      console.log(params)
-      messages.push(params.text)
+
+      messages.push({ text: params.text, sender: params.msisdn, recipient: params.to })
+
+      console.log('Received')
+      console.dir(messages[messages.length - 1])
       res.status(204).send('Received an SMS!')
     })
 
-  router.get('/messages', (req,res) => {
-    res.json({ messages })
+  router.get('/messages', async (req,res) => {
+    const result = await pool.query('SELECT * FROM people')
+    res.json({ messages: result.rows })
   })
 
   return router
