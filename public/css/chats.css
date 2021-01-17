@@ -1,0 +1,58 @@
+body {
+  background-color: rgba(115, 205, 151, 0.11);
+}
+
+.name {
+  color: #050152;
+  font-weight: bold;
+  font-size: 14;
+}
+
+.message {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.time-message {
+  font-weight: 100;
+  font-size: 10px;
+}
+
+.middle-tile {
+  padding-right: 0;
+}
+
+.person {
+  padding: 10px 10px;
+}
+
+.navigation {
+  width: 100vw;
+  height: 10%;
+  background-color: white;
+  border-top-left-radius: 14.4px;
+  border-top-right-radius: 14.4px;
+  position: fixed;
+  bottom: 0;
+}
+
+.nav-item {
+  text-align: center;
+}
+
+.nav-txt {
+  font-weight: 400;
+  font-size: 11px;
+}
+
+.off {
+  color: #d8d8d8;
+}
+
+.on {
+  color: #020058;
+}
+
+.msg-img {
+  text-align: end;
+}

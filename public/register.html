@@ -10,20 +10,31 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./css/style.css" />
-    <title>Home</title>
+    <title>Create an Account</title>
   </head>
   <body class="container px-0 mx-0">
     <div class="img-top row m-0">
       <img
-        src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
-        alt="Friends Hiking"
+        src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+        alt="=Friends Cooking"
       />
     </div>
     <main class="row mx-3 my-4 mb-4 align-items-start">
       <div class="col">
-        <h2>Welcome,<br />Please Login First</h2>
+        <h2>Welcome,<br />Register To Access</h2>
         <form action="" class="my-3">
-          <div class="form-field my-4">
+          <div class="form-field mt-3 mb-2">
+            <label for="email" class="form-label">Your Name</label>
+            <br />
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Awesome Name"
+              id="name"
+              class="form-control"
+            />
+          </div>
+          <div class="form-field mt-2 mb-2">
             <label for="email" class="form-label">Email</label>
             <br />
             <input
@@ -34,7 +45,7 @@
               class="form-control"
             />
           </div>
-          <div class="form-field my-4">
+          <div class="form-field mt-2 mb-2">
             <label for="email" class="form-label">Password</label>
             <br />
             <input
@@ -45,6 +56,12 @@
               class="form-control"
             />
           </div>
+          <div class="form-field mt-2 mb-3">
+            <label for="email" class="form-label">Password Again</label>
+            <br />
+            <input type="password" name="pswd2" placeholder="Password ******""
+            id="pswd2" class="form-control" />
+          </div>
           <div class="other-options container px-0">
             <div class="row justify-content-between mb-4">
               <span class="connect-icons col">
@@ -52,19 +69,14 @@
                 <img src="./images/fb.svg" alt="Gmail Icon" class="px-1" />
                 <img src="./images/twitter.svg" alt="Gmail Icon" class="px-1" />
               </span>
-              <span class="small-txt col px-0 align-items-center forgot-pswd"
-                >Forgot Password?</span
-              >
             </div>
           </div>
           <btn type="submit" class="btn submit-btn mb-3"
-            ><a href="">Login</a></btn
+            ><a href="">Register</a></btn
           >
-          <div class="small-txt register">
-            Don't Have An Account yet?
-            <span class="register-btn">
-              <a href="/register.html">Register</a></span
-            >
+          <div class="small-txt sign-in">
+            Already have an account?
+            <span class="sign-in-btn"> <a href="./index.html">Sign In</a></span>
           </div>
         </form>
       </div>
