@@ -7,10 +7,6 @@ module.exports = () => {
   app.use(express.urlencoded({ extended: true }))
   app.use(express.static('public'))
 
-  app.get('/', (req,res) => {
-    res.redirect('/api')
-  })
-
   app.use('/api' , apiRoute)
 
   return app
