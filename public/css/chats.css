@@ -1,5 +1,5 @@
 body {
-  background-color: rgba(115, 205, 151, 0.11);
+  background-color: rgba(115, 205, 151, 0.21);
 }
 
 .name {
@@ -55,4 +55,109 @@ body {
 
 .msg-img {
   text-align: end;
+}
+
+.search-bar {
+  border: none;
+  width: 100%;
+  height: 8vh;
+  border-radius: 100px;
+  text-align: center;
+  outline: none;
+  color: #b9a941;
+  box-shadow: 0 0 20px #bbb;
+}
+
+.search-img {
+  position: absolute;
+  height: 65px;
+  width: 80px;
+  padding: 10px 10px;
+  margin-left: 15px;
+}
+
+.search-bar::placeholder {
+  color: #b9a941;
+}
+
+.top-header {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.info-btn {
+  display: inline;
+  background-color: rgba(51, 148, 61, 0.55);
+  border: none;
+  color: white;
+  padding: 15px 10px;
+  margin: 0 3px;
+}
+
+.accepted-info {
+  border-radius: 8.14px;
+}
+
+.camera-info {
+  border-radius: 15px;
+}
+
+.p2 {
+  text-align: end;
+  background-color: #e4f4ff;
+  padding: 10px 20px;
+  border-top-left-radius: 20px;
+}
+
+.p1 {
+  background-color: white;
+  padding: 10px 20px;
+  border-top-right-radius: 20px;
+}
+
+.right {
+  text-align: end;
+}
+
+.messages div {
+  font-weight: 100;
+  margin: 30px 0;
+}
+
+.messages span {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.time {
+  color: #aeb3c2;
+  font-size: 12px;
+}
+
+.btm-search {
+  border: none;
+  width: 100%;
+  height: 8vh;
+  border-radius: 100px;
+  outline: none;
+  font-weight: 400;
+  color: #b9a941;
+}
+
+.btm-search::placeholder {
+  color: #b9a941;
+  padding: 10px;
+}
+
+.bottom {
+  position: relative;
+  bottom: 20px;
+}
+
+.send-img {
+  width: 75px;
+  height: 60px;
+  position: relative;
+  top: -62px;
+  left: 300px;
 }
